@@ -1,5 +1,5 @@
 - name: mongodb
-  hosts: mongo
+  hosts: mongo.kidevops.shop
   become: yes
   tasks:
   - name: copy mongo
