@@ -1,0 +1,26 @@
+- name: creating instance and route53
+  hosts: local
+  connection: local
+  vars:
+   ami_id: ami-09c813fb71547fc4f
+   sg_id: sg-069b175e8299a7826 
+   zone_id: Z069342217GVXMJ9BFNUK 
+   domain_name: kidevops.shop
+   instance:
+   - mongodb
+  tasks: 
+  - name: creating ec2 instance
+    amazon.aws.ec2_instance:
+     name: "{{ item }}"
+     instance_type: t3.micro
+     security_group: "{{ sg_id }}"
+     image_id: "{{ ami_id }}"
+     tags:
+      name: "{{ item}}"
+    loop: "{{ instance }}"
+    register: ec2_output
+
+  - name: print the ec2 ec2_output
+    ansible.builtin.debug:
+     msg: "{{ ec2_output }}"
+     
