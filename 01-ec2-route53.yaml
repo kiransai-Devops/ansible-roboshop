@@ -7,7 +7,7 @@
    zone_id: Z069342217GVXMJ9BFNUK 
    domain_name: kidevops.shop
    instance:
-   - mongodb
+   - mongo
   tasks: 
   - name: creating ec2 instance
     amazon.aws.ec2_instance:
