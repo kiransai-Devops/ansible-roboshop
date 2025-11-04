@@ -3,7 +3,7 @@
   connection: local
   vars:
    ami_id: ami-09c813fb71547fc4f
-   sg_id: sg-069b175e8299a7826 
+   sg_id: sg-0dc82508430f15d97 
    zone_id: Z069342217GVXMJ9BFNUK 
    domain_name: kidevops.shop
    instance:
