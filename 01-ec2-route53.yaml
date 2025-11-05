@@ -1,6 +1,6 @@
 - name: creating instance and route53
-  hosts: local
-  connection: local
+  hosts: localhost
+  connection: localhost
   vars:
    ami_id: ami-09c813fb71547fc4f
    sg_id: sg-0dc82508430f15d97 
