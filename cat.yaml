@@ -1,5 +1,5 @@
 - name: setup catalogue server
-  hosts: cat
+  hosts: catalogue
   become: yes
   tasks:
   - name: disable default nodejs
@@ -72,7 +72,7 @@
 
   # - name: evaluate cataalogue database
   #   community.mongodb.mongodb_shell:
-  #     login_host: mongodb.kidevops.shop
+  #     login_host: mongodb.daws86s.fun
   #     eval: db.getMongo().getDBNames().indexOf('catalogue')
   #   register: catalogue_output
 
