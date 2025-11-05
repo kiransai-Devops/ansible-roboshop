@@ -67,8 +67,8 @@
       state: present
 
   - name: connnect to mongodb catalogue
-    ansible.builtin.command: mongosh mongodb.kidevops.shop --quiet --eval "db.getMongo().getDBNames().indexOf('cat')"
-    register: cat_output
+    ansible.builtin.command: mongosh mongodb.kidevops.shop --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
+    register: catalogue_output
 
   # - name: evaluate cataalogue database
   #   community.mongodb.mongodb_shell:
@@ -82,7 +82,7 @@
 
   - name: load products into mongodb
     ansible.builtin.shell: mongosh --host mongodb.kidevops.shop </app/db/master-data.js
-    when: cat_output.stdout | int < 0
+    when: catalogue_output.stdout | int < 0
 
   # - name: start and enable cataalogue
   #   ansible.builtin.service:
@@ -92,7 +92,7 @@
 
   - name: daemon reload enable and start
     ansible.builtin.systemd_service:
-      name: cat
+      name: catalogue
       enabled: true
       state: started
       daemon_reload: true
